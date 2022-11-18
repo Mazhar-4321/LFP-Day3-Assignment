@@ -11,19 +11,28 @@ public class App {
         // Variables
         int fullTimeattendance = (int) Math.floor(Math.random() * 10) % 2 + 1;
         int partTimeAttendance = (int) Math.floor(Math.random() * 10) % 2 + 1;
-        // Functionality
+        int argumentVariable;
         if (fullTimeattendance == IS_PRESENT) {
-            System.out.println("Nature Of Employee: Full Time , Status: Present");
-            System.out.printf("Wage Per Hour=%d, Working Hours=%d\n", WAGE_PER_HOUR, WORKING_HOURS_IN_A_DAY);
-            System.out.printf("Wages Earned in a Day=%d", (WAGE_PER_HOUR * WORKING_HOURS_IN_A_DAY));
+            argumentVariable = 0;
         } else {
-            if (partTimeAttendance == IS_PRESENT) {
+            argumentVariable = 1;
+        }
+        // Functionality
+        switch (argumentVariable) {
+            case 0:
+                System.out.println("Nature Of Employee: Full Time , Status: Present");
+                System.out.printf("Wage Per Hour=%d, Working Hours=%d\n", WAGE_PER_HOUR, WORKING_HOURS_IN_A_DAY);
+                System.out.printf("Wages Earned in a Day=%d", (WAGE_PER_HOUR * WORKING_HOURS_IN_A_DAY));
+                break;
+            case 1:
                 System.out.println("Nature Of Employee: Part Time , Status: Present");
                 System.out.printf("Wage Per Hour=%d, Working Hours=%d\n", WAGE_PER_HOUR, PART_TIME_WORKING_HOURS);
                 System.out.printf("Wages Earned in a Day=%d", (WAGE_PER_HOUR * PART_TIME_WORKING_HOURS));
-            } else {
+                break;
+            default:
                 System.out.println("Employee is Absent");
-            }
+                break;
         }
+
     }
 }
