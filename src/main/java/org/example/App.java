@@ -28,13 +28,13 @@ public class App {
         }
         // Functionality
         switch (argumentVariable) {
-            case 0:
+            case 1:
                 System.out.println("Nature Of Employee: Full Time , Status: Present");
                 System.out.printf("Wage Per Hour=%d, Working Hours=%d\n", WAGE_PER_HOUR, WORKING_HOURS_IN_A_DAY);
                 System.out.printf("Wages Earned in a Day=%d\n", (WAGE_PER_HOUR * WORKING_HOURS_IN_A_DAY));
                 System.out.printf("Wages Earned in a Month=%d\n", (WAGE_PER_HOUR * WORKING_HOURS_IN_A_DAY * WORKING_HOURS_IN_A_MONTH));
                 break;
-            case 1:
+            case 2:
                 System.out.println("Nature Of Employee: Part Time , Status: Present");
                 System.out.printf("Wage Per Hour=%d, Working Hours=%d\n", WAGE_PER_HOUR, PART_TIME_WORKING_HOURS);
                 System.out.printf("Wages Earned in a Day=%d\n", (WAGE_PER_HOUR * PART_TIME_WORKING_HOURS));
