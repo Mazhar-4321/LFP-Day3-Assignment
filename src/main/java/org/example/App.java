@@ -15,7 +15,12 @@ public class App {
         if (fullTimeattendance == IS_PRESENT) {
             argumentVariable = 0;
         } else {
-            argumentVariable = 1;
+            if (partTimeAttendance == IS_PRESENT) {
+                argumentVariable = 1;
+            } else {
+                argumentVariable = -1;
+            }
+
         }
         // Functionality
         switch (argumentVariable) {
