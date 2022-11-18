@@ -1,56 +1,42 @@
 package org.example;
 
 public class App {
+    static final int IS_FULL_TIME = 1;
+    static final int IS_PART_TIME = 2;
+    static final int WAGE_PER_HOUR = 20;
+    final static int MONTHLY_WORKING_DAYS = 20;
+    static final int MAX_WORKING_HOURS_FOR_A_MONTH = 100;
+    static int PART_TIME_WORKING_HOURS = 4;
+    static int FULL_TIME_WORKING_HOURS = 8;
+
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        // Constants
-        int IS_PRESENT = 1;
-        int WAGE_PER_HOUR = 20;
-        int WORKING_HOURS_IN_A_DAY = 8;
-        int PART_TIME_WORKING_HOURS = 8;
-        int WORKING_HOURS_IN_A_MONTH = 20;
         // Variables
-        int fullTimeattendance = (int) Math.floor(Math.random() * 10) % 2 + 1;
-        int partTimeAttendance = (int) Math.floor(Math.random() * 10) % 2 + 1;
-        int argumentVariable;
-        int totalWoringHours = 0;
-        boolean isActive = true;
+        int empWages = 0;
+        int totalMonthlyWages = 0;
         int noOfDays = 0;
-        if (fullTimeattendance == IS_PRESENT) {
-            argumentVariable = 0;
-        } else {
-            if (partTimeAttendance == IS_PRESENT) {
-                argumentVariable = 1;
-            } else {
-                argumentVariable = -1;
-            }
-
-        }
-        // Functionality
-        switch (argumentVariable) {
-            case 0:
-                System.out.println("Nature Of Employee: Full Time , Status: Present");
-                System.out.printf("Wage Per Hour=%d, Working Hours=%d\n", WAGE_PER_HOUR, WORKING_HOURS_IN_A_DAY);
-                System.out.printf("Wages Earned in a Day=%d\n", (WAGE_PER_HOUR * WORKING_HOURS_IN_A_DAY));
-                System.out.printf("Wages Earned in a Month=%d\n", (WAGE_PER_HOUR * WORKING_HOURS_IN_A_DAY * WORKING_HOURS_IN_A_MONTH));
-                break;
-            case 1:
-                System.out.println("Nature Of Employee: Part Time , Status: Present");
-                System.out.printf("Wage Per Hour=%d, Working Hours=%d\n", WAGE_PER_HOUR, PART_TIME_WORKING_HOURS);
-                System.out.printf("Wages Earned in a Day=%d\n", (WAGE_PER_HOUR * PART_TIME_WORKING_HOURS));
-                System.out.printf("Wages Earned in a Month=%d", (WAGE_PER_HOUR * PART_TIME_WORKING_HOURS * WORKING_HOURS_IN_A_MONTH));
-                break;
-            default:
-                System.out.println("Employee is Absent");
-                break;
-        }
+        boolean isActive = true;
         while (isActive) {
-            totalWoringHours += (int) Math.floor(Math.random() * 10) % 8 + 1;
-            noOfDays += (int) Math.floor(Math.random() * 10) % 2 + 1;
-            if (totalWoringHours == 100 || noOfDays == 20) {
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+            int workingHours = 0;
+            empWages = 0;
+            // Functionality
+            switch (empCheck) {
+                case IS_FULL_TIME:
+                    empWages = FULL_TIME_WORKING_HOURS * WAGE_PER_HOUR;
+                    workingHours += FULL_TIME_WORKING_HOURS;
+                    break;
+                case IS_PART_TIME:
+                    empWages = PART_TIME_WORKING_HOURS * WAGE_PER_HOUR;
+                    workingHours += PART_TIME_WORKING_HOURS;
+                    break;
+            }
+            totalMonthlyWages += empWages;
+            noOfDays++;
+            if (noOfDays == MONTHLY_WORKING_DAYS || workingHours == MAX_WORKING_HOURS_FOR_A_MONTH) {
                 isActive = false;
             }
         }
-
+        System.out.printf("Wages Earned In a Month=%d\n", totalMonthlyWages);
     }
 }
